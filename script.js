@@ -14,7 +14,7 @@ window.addEventListener("load", function() {
     listedPlanetsResponse.then(function (json) {
         listedPlanets = json;
         let planetSelected = pickPlanet(listedPlanets);
-        helper.addDestinationInfo(document,planetSelected.name,planetSelected);
+        helper.addDestinationInfo(document, planetSelected.name, planetSelected.diameter, planetSelected.star, planetSelected.distance, planetSelected.moons, planetSelected.imageUrl);
     //    console.log(json);
         
 //    }).then(function () {
