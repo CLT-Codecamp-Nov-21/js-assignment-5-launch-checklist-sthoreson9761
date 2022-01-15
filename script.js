@@ -28,6 +28,8 @@ window.addEventListener("load", function() {
         let cargoMassInput = document.querySelector("div.formField input[name=cargoMass]").value;
         if(formSubmission(document, faultyItemsElement, pilotNameInput, copilotNameInput, fuelLevelInput, cargoMassInput) === "Empty"){
             alert("All fields are required!");
+        }else if(formSubmission(document, faultyItemsElement, pilotNameInput, copilotNameInput, fuelLevelInput, cargoMassInput) === "Invalid"){
+            alert("Make sure to enter valid information for each field!");
         }
         event.preventDefault();
     });

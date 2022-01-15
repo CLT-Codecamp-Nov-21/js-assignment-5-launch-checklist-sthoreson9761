@@ -40,18 +40,25 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
         document.getElementById("pilotStatus").innerHTML = `Pilot ${pilot} is ready for launch`;
         document.getElementById("copilotStatus").innerHTML = `Co-pilot ${copilot} is ready for launch`;
 
-        if(Number(fuelLevel) < 10000 || isNaN(Number(fuelLevel))){
+        if(isNaN(Number(fuelLevel))){
+            return "Invalid";
+        }else if(Number(fuelLevel) < 10000){
             document.getElementById("fuelStatus").innerHTML = "Fuel level too low for launch";
             document.getElementById("launchStatus").innerHTML = "Shuttle Not Ready for Launch";
             document.getElementById("launchStatus").style.color = "rgb(199, 37, 78)";
-            if(Number(cargoLevel) > 10000 || isNaN(Number(cargoLevel))){
+            if(isNaN(Number(cargoLevel))){
+                return "Invalid";
+            }else if(Number(cargoLevel) > 10000){
                 document.getElementById("cargoStatus").innerHTML = "Cargo mass too heavy for launch";
             }else{
                 document.getElementById("cargoStatus").innerHTML = "Cargo mass low enough for launch";
             }
+            list.style.visibility = "visible";
         }else{
             document.getElementById("fuelStatus").innerHTML = "Fuel level high enough for launch";
-            if(Number(cargoLevel) > 10000 || isNaN(Number(cargoLevel))){
+            if(isNaN(Number(cargoLevel))){
+                return "Invalid";
+            }else if(Number(cargoLevel) > 10000){
                 document.getElementById("cargoStatus").innerHTML = "Cargo mass too heavy for launch";
                 document.getElementById("launchStatus").innerHTML = "Shuttle Not Ready for Launch";
                 document.getElementById("launchStatus").style.color = "rgb(199, 37, 78)";
@@ -60,8 +67,9 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
                 document.getElementById("launchStatus").innerHTML = "Shuttle is Ready for Launch";
                 document.getElementById("launchStatus").style.color = "rgb(65, 159, 106)";
             }
+            list.style.visibility = "visible";
         } 
-        list.style.visibility = "visible";    
+            
         return "valid";
     }
    
