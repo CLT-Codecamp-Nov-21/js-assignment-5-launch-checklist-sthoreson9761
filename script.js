@@ -12,10 +12,11 @@ window.addEventListener("load", function() {
     // Set listedPlanetsResponse equal to the value returned by calling myFetch()
     let listedPlanetsResponse = myFetch();
     listedPlanetsResponse.then(function (json) {
-        listedPlanets = json;
-        let planetSelected = pickPlanet(listedPlanets);
-        helper.addDestinationInfo(document, planetSelected.name, planetSelected.diameter, planetSelected.star, planetSelected.distance, planetSelected.moons, planetSelected.imageUrl);
-    //    console.log(json);
+        // listedPlanets = json;
+        // console.log(json);
+        listedPlanets = pickPlanet(json);
+        addDestinationInfo(document, listedPlanets["name"], listedPlanets["diameter"], listedPlanets["star"], listedPlanets["distance"], listedPlanets["moons"], listedPlanets["image"]);
+       console.log(listedPlanets);
         
 //    }).then(function () {
 //        console.log(listedPlanets);
@@ -26,13 +27,15 @@ window.addEventListener("load", function() {
     let form = document.querySelector("form");//.getElementsByClassName("formField");//.querySelector("form");
     const propagation = true;
     form.addEventListener("submit", function(event){
-        let pilotNameInput = document.querySelector("input[id=pName]");
-        let copilotNameInput = document.querySelector("input[id=cName]");
-        let fuelLevelInput = document.querySelector("input[id=fuelLvl]");
-        let cargoMassInput = document.querySelector("input[id=cargoKg]");
-        helper.formSubmission(document,faultyItemsElement, pilotNameInput,copilotNameInput,fuelLevelInput,cargoMassInput);
+        // let pilotNameInput = document.querySelector("input[id=pName]");
+        // let copilotNameInput = document.querySelector("input[id=cName]");
+        // let fuelLevelInput = document.querySelector("input[id=fuelLvl]");
+        // let cargoMassInput = document.querySelector("input[id=cargoKg]");
+        formSubmission(document, faultyItemsElement, document.querySelector("input[id=pName]"), document.querySelector("input[id=cName]"), document.querySelector("input[id=fuelLvl]"), document.querySelector("input[id=cargoKg]"));
         event.preventDefault();
+        
         // faultyItemsElement.style.visibility = "visible";
     });
+    
 
 });
