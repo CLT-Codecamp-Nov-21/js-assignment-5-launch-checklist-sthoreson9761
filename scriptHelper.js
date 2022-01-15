@@ -31,20 +31,11 @@ function validateInput(testInput) {
 }
 
 function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
-    // <ol>
-    //                 <li id="pilotStatus" data-testid="pilotStatus">Pilot Ready</li>
-    //                 <li id="copilotStatus" data-testid="copilotStatus">Co-pilot Ready</li>
-    //                 <li id="fuelStatus" data-testid="fuelStatus">Fuel level high enough for launch</li>
-    //                 <li id="cargoStatus" data-testid="cargoStatus">Cargo mass low enough for launch</li>
-    //             </ol>
-    //         div
     
     if(validateInput(pilot) === "Empty" || validateInput(copilot) === "Empty" || validateInput(fuelLevel) === "Empty" || validateInput(cargoLevel) === "Empty"){
         window.alert("All fields are required!");   
         console.log(alert("All fields are required!"));     
     }else{
-
-    
 
     const pilotNode = document.getElementById("pilotStatus");
     const copilotNode = document.getElementById("copilotStatus");
@@ -156,7 +147,7 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
         
     // }
 
-    return itemText;
+    // return itemText;
 }
    
 }
