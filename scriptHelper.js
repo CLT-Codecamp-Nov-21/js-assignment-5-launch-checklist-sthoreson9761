@@ -7,6 +7,7 @@ try{
 
 function addDestinationInfo(document, name, diameter, star, distance, moons, imageUrl) {
    // Here is the HTML formatting for our mission target div.
+   
    /*
                 <h2>Mission Destination</h2>
                 <ol>
@@ -44,6 +45,8 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
         
         pilotNode.innerHTML = `Pilot ${pilot} is ready for launch`;
         copilotNode.innerHTML = `Co-pilot ${copilot} is ready for launch`;
+        document.getElementById("pilotStatus") = pilotNode;
+        document.getElementById("copilotStatus") = copilotNode;
 
     if(Number(fuelLevel) < 10000 || isNaN(Number(fuelLevel))){
         fuelLevelNode.innerHTML = "Fuel level too low for launch";
