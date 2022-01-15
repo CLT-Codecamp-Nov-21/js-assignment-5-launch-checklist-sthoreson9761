@@ -1,10 +1,10 @@
 // Write your JavaScript code here!
 
-// try{
-//     ("./scriptHelper");
-// }catch(e){
-//     //do nothing
-// }
+try{
+    const helper = require("./scriptHelper");
+}catch(e){
+    //do nothing
+}
 
 window.addEventListener("load", function() {
 
@@ -19,13 +19,16 @@ window.addEventListener("load", function() {
 //    });
     const faultyItemsElement = document.getElementById("faultyItems");
     faultyItemsElement.style.visibility = "hidden";
-    let form = document.getElementById("launchForm").querySelector("div");
-    form.addEventListener("submit", function(event){
+    let form = document.getElementById("userIn");//.querySelector("form");
+    const propagation = true;
+    form.querySelector("Div").addEventListener("submit", function(event){
         let pilotNameInput = document.querySelector("input[id=pName]");
         let copilotNameInput = document.querySelector("input[id=cName]");
         let fuelLevelInput = document.querySelector("input[id=fuelLvl]");
         let cargoMassInput = document.querySelector("input[id=cargoKg]");
-        formSubmission(window.document,faultyItemsElement, pilotNameInput,copilotNameInput,fuelLevelInput,cargoMassInput);
+        formSubmission(document.getElementsByTagName("Html"),faultyItemsElement, pilotNameInput,copilotNameInput,fuelLevelInput,cargoMassInput);
+        event.preventDefault();
+        // faultyItemsElement.style.visibility = "visible";
     });
 
 });
