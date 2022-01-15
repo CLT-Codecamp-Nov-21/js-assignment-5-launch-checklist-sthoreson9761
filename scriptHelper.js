@@ -34,57 +34,36 @@ function validateInput(testInput) {
 function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
     
     if(validateInput(pilot) === "Empty" || validateInput(copilot) === "Empty" || validateInput(fuelLevel) === "Empty" || validateInput(cargoLevel) === "Empty"){
-        alert("All fields are required!");      
+        return "Empty";    
     }else{
 
-    // const pilotNode = document.getElementById("pilotStatus");
-    // const copilotNode = document.getElementById("copilotStatus");
-    // const fuelLevelNode = document.getElementById("fuelStatus");
-    // const cargoStatusNode = document.getElementById("cargoStatus");
+        document.getElementById("pilotStatus").innerHTML = `Pilot ${pilot} is ready for launch`;
+        document.getElementById("copilotStatus").innerHTML = `Co-pilot ${copilot} is ready for launch`;
 
-        list.getElementById("pilotStatus").innerHTML = `Pilot ${pilot} is ready for launch`;
-        list.getElementById("copilotStatus").innerHTML = `Co-pilot ${copilot} is ready for launch`;
-
-    if(Number(fuelLevel) < 10000 || isNaN(Number(fuelLevel))){
-        document.getElementById("fuelStatus").innerHTML = "Fuel level too low for launch";
-        document.getElementById("launchStatus").innerHTML = "Shuttle Not Ready for Launch";
-        document.getElementById("launchStatus").style.color = "rgb(199, 37, 78)";
-        if(Number(cargoLevel) > 10000 || isNaN(Number(cargoLevel))){
-            document.getElementById("cargoStatus").innerHTML = "Cargo mass too heavy for launch";
-        }else{
-            document.getElementById("cargoStatus").innerHTML = "Cargo mass low enough for launch";
-        }
-    }else{
-        // fuelLevelNode.innerHTML = ;
-        list.getElementById("fuelStatus").innerHTML = "Fuel level high enough for launch";
-        if(Number(cargoLevel) > 10000 || isNaN(Number(cargoLevel))){
-            // cargoStatusNode.innerHTML = ;
-            document.getElementById("cargoStatus").innerHTML = "Cargo mass too heavy for launch";
-            document.getElementById("launchStatus").inner = "Shuttle Not Ready for Launch";
+        if(Number(fuelLevel) < 10000 || isNaN(Number(fuelLevel))){
+            document.getElementById("fuelStatus").innerHTML = "Fuel level too low for launch";
+            document.getElementById("launchStatus").innerHTML = "Shuttle Not Ready for Launch";
             document.getElementById("launchStatus").style.color = "rgb(199, 37, 78)";
+            if(Number(cargoLevel) > 10000 || isNaN(Number(cargoLevel))){
+                document.getElementById("cargoStatus").innerHTML = "Cargo mass too heavy for launch";
+            }else{
+                document.getElementById("cargoStatus").innerHTML = "Cargo mass low enough for launch";
+            }
         }else{
-            // cargoStatusNode.innerHTML = ;
-            document.getElementById("cargoStatus") = "Cargo mass low enough for launch";
-            document.getElementById("launchStatus") = "Shuttle is Ready for Launch";
-            document.getElementById("launchStatus").style.color = "rgb(65, 159, 106)";
-        }
-    } 
-    let listId = list.getAttribute("id");
-        document.getElementById(listId).innerHTML = list;
+            document.getElementById("fuelStatus").innerHTML = "Fuel level high enough for launch";
+            if(Number(cargoLevel) > 10000 || isNaN(Number(cargoLevel))){
+                document.getElementById("cargoStatus").innerHTML = "Cargo mass too heavy for launch";
+                document.getElementById("launchStatus").innerHTML = "Shuttle Not Ready for Launch";
+                document.getElementById("launchStatus").style.color = "rgb(199, 37, 78)";
+            }else{
+                document.getElementById("cargoStatus").innerHTML = "Cargo mass low enough for launch";
+                document.getElementById("launchStatus").innerHTML = "Shuttle is Ready for Launch";
+                document.getElementById("launchStatus").style.color = "rgb(65, 159, 106)";
+            }
+        } 
         list.style.visibility = "visible";    
-    // itemText = `
-        // <ol>
-        //     <li id="pilotStatus" data-testid="pilotStatus">${listItems["pilot"]}</li>
-        //     <li id="copilotStatus" data-testid="copilotStatus">${listItems["copilot"]}</li>
-        //     <li id="fuelStatus" data-testid="fuelStatus">${listItems["fuelLevel"]}</li>
-        //     <li id="cargoStatus" data-testid="cargoStatus">${listItems["cargoLevel"]}</li>
-        // </ol>
-        // `;        
-        
-    // }
-
-    // return "itemText";
-}
+        return "valid";
+    }
    
 }
 
