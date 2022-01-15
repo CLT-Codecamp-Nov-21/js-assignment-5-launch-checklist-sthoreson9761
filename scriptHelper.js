@@ -46,25 +46,25 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
         list.getElementById("copilotStatus").innerHTML = `Co-pilot ${copilot} is ready for launch`;
 
     if(Number(fuelLevel) < 10000 || isNaN(Number(fuelLevel))){
-        list.getElementById("fuelStatus").innerHTML = "Fuel level too low for launch";
+        document.getElementById("fuelStatus").innerHTML = "Fuel level too low for launch";
         document.getElementById("launchStatus").innerHTML = "Shuttle Not Ready for Launch";
         document.getElementById("launchStatus").style.color = "rgb(199, 37, 78)";
         if(Number(cargoLevel) > 10000 || isNaN(Number(cargoLevel))){
-            list.getElementById("cargoStatus").innerHTML = "Cargo mass too heavy for launch";
+            document.getElementById("cargoStatus").innerHTML = "Cargo mass too heavy for launch";
         }else{
-            list.getElementById("cargoStatus").innerHTML = "Cargo mass low enough for launch";
+            document.getElementById("cargoStatus").innerHTML = "Cargo mass low enough for launch";
         }
     }else{
         // fuelLevelNode.innerHTML = ;
         list.getElementById("fuelStatus").innerHTML = "Fuel level high enough for launch";
         if(Number(cargoLevel) > 10000 || isNaN(Number(cargoLevel))){
             // cargoStatusNode.innerHTML = ;
-            list.getElementById("cargoStatus").innerHTML = "Cargo mass too heavy for launch";
+            document.getElementById("cargoStatus").innerHTML = "Cargo mass too heavy for launch";
             document.getElementById("launchStatus").inner = "Shuttle Not Ready for Launch";
             document.getElementById("launchStatus").style.color = "rgb(199, 37, 78)";
         }else{
             // cargoStatusNode.innerHTML = ;
-            list.getElementById("cargoStatus") = "Cargo mass low enough for launch";
+            document.getElementById("cargoStatus") = "Cargo mass low enough for launch";
             document.getElementById("launchStatus") = "Shuttle is Ready for Launch";
             document.getElementById("launchStatus").style.color = "rgb(65, 159, 106)";
         }
