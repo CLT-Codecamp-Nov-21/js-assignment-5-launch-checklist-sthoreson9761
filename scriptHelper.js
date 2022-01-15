@@ -34,110 +34,43 @@ function validateInput(testInput) {
 function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
     
     if(validateInput(pilot) === "Empty" || validateInput(copilot) === "Empty" || validateInput(fuelLevel) === "Empty" || validateInput(cargoLevel) === "Empty"){
-        window.alert("All fields are required!");   
-        console.log(alert("All fields are required!"));     
+        alert("All fields are required!");      
     }else{
 
-    const pilotNode = document.getElementById("pilotStatus");
-    const copilotNode = document.getElementById("copilotStatus");
-    const fuelLevelNode = document.getElementById("fuelStatus");
-    const cargoStatusNode = document.getElementById("cargoStatus");
-        
-        pilotNode.innerHTML = `Pilot ${pilot} is ready for launch`;
-        copilotNode.innerHTML = `Co-pilot ${copilot} is ready for launch`;
-        document.getElementById("pilotStatus") = pilotNode;
-        document.getElementById("copilotStatus") = copilotNode;
+    // const pilotNode = document.getElementById("pilotStatus");
+    // const copilotNode = document.getElementById("copilotStatus");
+    // const fuelLevelNode = document.getElementById("fuelStatus");
+    // const cargoStatusNode = document.getElementById("cargoStatus");
+
+        list.getElementById("pilotStatus").innerHTML = `Pilot ${pilot} is ready for launch`;
+        list.getElementById("copilotStatus").innerHTML = `Co-pilot ${copilot} is ready for launch`;
 
     if(Number(fuelLevel) < 10000 || isNaN(Number(fuelLevel))){
-        fuelLevelNode.innerHTML = "Fuel level too low for launch";
-        document.getElementById("fuelStatus") = fuelLevelNode;
-        document.getElementById("launchStatus") = "Shuttle Not Ready for Launch";
+        list.getElementById("fuelStatus").innerHTML = "Fuel level too low for launch";
+        document.getElementById("launchStatus").innerHTML = "Shuttle Not Ready for Launch";
         document.getElementById("launchStatus").style.color = "rgb(199, 37, 78)";
         if(Number(cargoLevel) > 10000 || isNaN(Number(cargoLevel))){
-            cargoStatusNode.innerHTML = "Cargo mass too heavy for launch";
-            document.getElementById("cargoStatus") = cargoStatusNode;
+            list.getElementById("cargoStatus").innerHTML = "Cargo mass too heavy for launch";
         }else{
-            cargoStatusNode.innerHTML = "Cargo mass low enough for launch";
-            document.getElementById("cargoStatus") = cargoStatusNode;
+            list.getElementById("cargoStatus").innerHTML = "Cargo mass low enough for launch";
         }
     }else{
-        fuelLevelNode.innerHTML = "Fuel level high enough for launch";
-        document.getElementById("fuelStatus") = fuelLevelNode;
+        // fuelLevelNode.innerHTML = ;
+        list.getElementById("fuelStatus").innerHTML = "Fuel level high enough for launch";
         if(Number(cargoLevel) > 10000 || isNaN(Number(cargoLevel))){
-            cargoStatusNode.innerHTML = "Cargo mass too heavy for launch";
-            document.getElementById("cargoStatus") = cargoStatusNode;
-            document.getElementById("launchStatus") = "Shuttle Not Ready for Launch";
+            // cargoStatusNode.innerHTML = ;
+            list.getElementById("cargoStatus").innerHTML = "Cargo mass too heavy for launch";
+            document.getElementById("launchStatus").inner = "Shuttle Not Ready for Launch";
             document.getElementById("launchStatus").style.color = "rgb(199, 37, 78)";
         }else{
-            cargoStatusNode.innerHTML = "Cargo mass low enough for launch";
-            document.getElementById("cargoStatus") = cargoStatusNode;
+            // cargoStatusNode.innerHTML = ;
+            list.getElementById("cargoStatus") = "Cargo mass low enough for launch";
             document.getElementById("launchStatus") = "Shuttle is Ready for Launch";
             document.getElementById("launchStatus").style.color = "rgb(65, 159, 106)";
         }
     } 
-    
-    // if(Number(cargoLevel) > 10000 || isNaN(Number(cargoLevel))){
-    //     cargoStatusNode.innerHTML = "Cargo mass too heavy for launch";
-    //     document.getElementById("cargoStatus") = cargoStatusNode;
-    //     // document.getElementById("launchStatus") = "Shuttle Not Ready for Launch";
-    // }else{
-    //     cargoStatusNode.innerHTML = "Cargo mass low enough for launch";
-    //     document.getElementById("cargoStatus") = cargoStatusNode;
-    //     // document.getElementById("launchStatus") = "Shuttle is Ready for Launch";
-    // }
-
-    // if(launch)
-    // if(this.cargoLevel === "Cargo mass too heavy for launch"){
-    //     return "Shuttle Not Ready for Launch";
-    // }else{
-    //     return "Shuttle is Ready for Launch";
-    // }
-    // for(let item in inputContainer){
-    //     if(inputContainer[item] === "Empty"){
-    //         itemText = "Empty";
-    //     }else if(inputContainer[item] === "Not a Number"){
-    //         if(item === "fuelLevel" || item === "cargoLevel"){
-    //             if(item === "fuelLevel"){
-    //                 listItems[item] = `${item} is too low for launch`;
-    //             }else{
-    //                 listItems[item] = `${item} is too heavy for launch`;
-    //             }
-    //         }else if(item === "pilot"){
-    //             listItems[item] = `Pilot ${pilot} is ready for launch`;
-    //         }else{
-    //             listItems[item] = `Co-pilot ${copilot} is ready for launch`;
-    //         }
-    //     }else{ //Is a Number
-    //         if(item === "fuelLevel"){
-    //             if(Number(fuelLevel)>10000){
-    //                 listItems["fuelLevel"] = "Fuel level high enough for launch";
-    //             }else{
-    //                 listItems["fuelLevel"] = "Fuel level too low for launch";
-    //             }
-    //         }else{
-    //             if(Number(cargoLevel)<10000){
-    //                 listItems["cargoLevel"] = "Cargo mass low enough for launch";
-    //             }else{
-    //                 listItems["cargoLevel"] = "Cargo mass too heavy for launch";
-    //             }
-    //         }
-    //     }
-    // }
-    
-    
-    // let propagation = true;
-    // // else{
-    //     if(listItems["status"] === "Shuttle Not Ready for Launch"){
-    //         document.getElementById("launchStatus").innerHTML = "Shuttle Not Ready for Launch";
-    //         document.getElementById("launchStatus").style.color = "rgb(199, 37, 78)";
-    //     }else{
-    //         document.getElementById("launchStatus").innerHTML = "Shuttle is Ready for Launch";
-    //         document.getElementById("launchStatus").style.color = "rgb(65, 159, 106)";
-    //     }
-    //     let listID = list.getAttribute("id");
-    //     if(document.getElementById(listID).style.visibility === "hidden"){
-    //         document.getElementById(listID).style.visibility = "visible";
-    //     }
+    let listId = list.getAttribute("id");
+        document.getElementById(listId).innerHTML = list;
         list.style.visibility = "visible";    
     // itemText = `
         // <ol>
@@ -150,7 +83,7 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
         
     // }
 
-    // return itemText;
+    // return "itemText";
 }
    
 }
@@ -159,7 +92,7 @@ async function myFetch() {
     let planetsReturned;
 
     planetsReturned = await fetch("https://handlers.education.launchcode.org/static/planets.json").then( function(response) {
-        response.json();
+        return response.json();
         });
 
     return planetsReturned;
